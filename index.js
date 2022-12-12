@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import router from './router.js'
-
+import todoRouter from './todoRouter.js'
 const PORT = 5001
 const DB_URL = `mongodb+srv://Igor:password123321@cluster0.tib9cqk.mongodb.net/?retryWrites=true&w=majority`
 
@@ -18,6 +18,7 @@ app.use(cors())
 
 app.use(express.json())
 app.use('/api', router)
+app.use('/api', todoRouter)
 
 // app.use('/api', userRouter) // If have another routes
 
