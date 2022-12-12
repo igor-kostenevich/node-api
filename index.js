@@ -6,11 +6,6 @@ const PORT = 5001
 const DB_URL = `mongodb+srv://Igor:password123321@cluster0.tib9cqk.mongodb.net/?retryWrites=true&w=majority`
 
 const app = express()
-app.use(express.json())
-app.use('/api', router)
-
-// app.use('/api', userRouter) // If have another routes
-
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Credentials', true)
@@ -18,6 +13,13 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
   next()
 })
+
+app.use(express.json())
+app.use('/api', router)
+
+// app.use('/api', userRouter) // If have another routes
+
+
 
 
 
